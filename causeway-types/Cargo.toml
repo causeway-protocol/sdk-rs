@@ -15,3 +15,6 @@ categories = ["cryptography::cryptocurrencies"]
 [dependencies]
 borsh.workspace = true
 borsh-derive.workspace = true
+
+[dev-dependencies]
+anchor-lang = "0.30.1"
