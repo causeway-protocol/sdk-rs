@@ -1,0 +1,13 @@
+{
+  "address": "CauseWay111111111111111111111111111111111111",
+  "metadata": {
+    "name": "causeway",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Causeway threshold-custody Solana program — IDL placeholder; replace from `anchor build` output before publish"
+  },
+  "instructions": [],
+  "accounts": [],
+  "types": [],
+  "errors": []
+}

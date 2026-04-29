@@ -12,5 +12,6 @@
 #![forbid(unsafe_code)]
 
 mod types;
+pub mod idl;
 
 pub use types::*;
