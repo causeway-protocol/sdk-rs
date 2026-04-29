@@ -1,0 +1,17 @@
+[package]
+name = "causeway-cpi"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+description = "Anchor CPI wrappers — tenant programs call into Causeway via this crate"
+readme = "README.md"
+keywords = ["causeway", "solana", "anchor", "cpi", "tenant"]
+categories = ["cryptography::cryptocurrencies"]
+
+[dependencies]
+anchor-lang = "0.30.1"
+causeway-types = { path = "../causeway-types", version = "0.1.0-alpha.0" }
