@@ -7,3 +7,8 @@
 //! to compile the whole Causeway program.
 
 #![forbid(unsafe_code)]
+
+pub mod cpi;
+pub mod discriminators;
+
+pub use cpi::*;
