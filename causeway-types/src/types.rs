@@ -51,3 +51,32 @@ pub enum PauseReason {
     GovernanceHalt = 1,
     RotationFinalized = 2,
 }
+
+/// Lifecycle of a `SigningRequest` (causeway protocol §7.1).
+#[derive(BorshSerialize, BorshDeserialize, Clone, Copy, PartialEq, Eq, Debug)]
+#[repr(u8)]
+pub enum RequestStatus {
+    Pending = 0,
+    Completed = 1,
+    Failed = 2,
+}
+
+/// Per-asset sighash discriminator used in I8 compatibility checks.
+#[derive(BorshSerialize, BorshDeserialize, Clone, Copy, PartialEq, Eq, Debug)]
+#[repr(u8)]
+pub enum SighashKind {
+    BtcTaprootKeySpend = 0,
+    BtcSegwitV0 = 1,
+    EthLegacy = 2,
+    EthEip1559 = 3,
+    ZecTransparentZip244 = 4,
+}
+
+/// Wire format of the final aggregated signature stored on-chain.
+#[derive(BorshSerialize, BorshDeserialize, Clone, Copy, PartialEq, Eq, Debug)]
+#[repr(u8)]
+pub enum SignatureFormat {
+    Schnorr64 = 0,
+    EcdsaDer = 1,
+    EcdsaRecoverable65 = 2,
+}
