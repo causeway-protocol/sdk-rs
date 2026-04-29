@@ -1,0 +1,17 @@
+[package]
+name = "causeway-types"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+description = "On-chain Causeway program types — Borsh-only, no Solana deps"
+readme = "README.md"
+keywords = ["causeway", "solana", "threshold", "custody"]
+categories = ["cryptography::cryptocurrencies"]
+
+[dependencies]
+borsh.workspace = true
+borsh-derive.workspace = true

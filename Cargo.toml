@@ -2,11 +2,6 @@
 resolver = "2"
 members = [
     "causeway-types",
-    "causeway-cpi",
-    "causeway-derive",
-    "causeway-evm",
-    "causeway-zec",
-    "causeway-btc",
 ]
 
 [workspace.package]
