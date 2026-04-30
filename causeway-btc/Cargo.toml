@@ -1,0 +1,23 @@
+[package]
+name = "causeway-btc"
+version = "0.1.0-alpha.0"
+edition = "2021"
+authors = ["Causeway contributors"]
+license = "Apache-2.0"
+repository = "https://github.com/causeway-sh/sdk-rs"
+homepage = "https://causeway.sh"
+rust-version = "1.75"
+description = "Causeway off-chain helpers for Bitcoin — P2TR address derivation, BIP-341 sighash, witness assembly"
+readme = "README.md"
+keywords = ["causeway", "bitcoin", "p2tr", "taproot", "threshold"]
+categories = ["cryptography::cryptocurrencies"]
+
+# Standalone — same zeroize-conflict reasoning as causeway-derive.
+
+[dependencies]
+causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.0" }
+bitcoin = "0.32"
+sha2 = "0.10"
+k256 = { version = "0.13", features = ["arithmetic"] }
+hex = "0.4"
+thiserror = "1"
