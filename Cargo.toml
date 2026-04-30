@@ -12,6 +12,7 @@ members = [
 # causeway-evm / causeway-zec / causeway-btc — see Day 2's day-block.
 exclude = [
     "causeway-derive",
+    "causeway-evm",
 ]
 
 [workspace.package]

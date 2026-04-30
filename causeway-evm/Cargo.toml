@@ -1,0 +1,30 @@
+[package]
+name = "causeway-evm"
+version = "0.1.0-alpha.0"
+edition = "2021"
+authors = ["Causeway contributors"]
+license = "Apache-2.0"
+repository = "https://github.com/causeway-sh/sdk-rs"
+homepage = "https://causeway.sh"
+rust-version = "1.75"
+description = "Causeway off-chain helpers for EVM assets — address derivation, EIP-1559 sighash, signed-tx assembly"
+readme = "README.md"
+keywords = ["causeway", "ethereum", "eip1559", "evm", "threshold"]
+categories = ["cryptography::cryptocurrencies"]
+
+# Standalone — same zeroize-conflict reasoning as causeway-derive.
+# Asset crates ship with minimal dep trees so EVM-only consumers
+# don't pull ZEC or BTC code.
+
+[dependencies]
+causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.0" }
+alloy = { version = "0.5", features = ["consensus", "rpc-types-eth", "network", "rlp", "k256"] }
+alloy-primitives = "0.8"
+alloy-rlp = "0.3"
+sha3 = "0.10"
+thiserror = "1"
+hex = "0.4"
+
+[dev-dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
