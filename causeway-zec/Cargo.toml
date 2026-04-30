@@ -19,7 +19,7 @@ causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.0" }
 zcash_primitives = "0.27"
 zcash_protocol = "0.8"
 zcash_encoding = "0.4"
-zcash_transparent = "0.7"
+transparent = { package = "zcash_transparent", version = "0.7" }
 sapling-crypto = "0.7"
 orchard = "0.13"
 bs58 = { version = "0.5", features = ["check"] }
