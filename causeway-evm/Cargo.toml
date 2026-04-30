@@ -18,7 +18,7 @@ categories = ["cryptography::cryptocurrencies"]
 
 [dependencies]
 causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.0" }
-alloy = { version = "0.5", features = ["consensus", "rpc-types-eth", "network", "rlp", "k256"] }
+alloy = { version = "0.5", features = ["consensus", "eips", "rpc-types-eth", "network", "rlp", "k256"] }
 alloy-primitives = "0.8"
 alloy-rlp = "0.3"
 k256 = { version = "0.13", features = ["arithmetic"] }
