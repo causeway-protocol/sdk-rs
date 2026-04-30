@@ -1,0 +1,32 @@
+[package]
+name = "causeway-zec"
+version = "0.1.0-alpha.0"
+edition = "2021"
+authors = ["Causeway contributors"]
+license = "Apache-2.0"
+repository = "https://github.com/causeway-sh/sdk-rs"
+homepage = "https://causeway.sh"
+rust-version = "1.75"
+description = "Causeway off-chain helpers for Zcash transparent — address derivation, ZIP-244 v5 sighash, signed-tx assembly"
+readme = "README.md"
+keywords = ["causeway", "zcash", "zip244", "transparent", "threshold"]
+categories = ["cryptography::cryptocurrencies"]
+
+# Standalone — same zeroize-conflict reasoning as causeway-derive.
+
+[dependencies]
+causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.0" }
+zcash_primitives = "0.27"
+zcash_protocol = "0.8"
+zcash_encoding = "0.4"
+zcash_transparent = "0.7"
+sapling-crypto = "0.7"
+orchard = "0.13"
+bs58 = { version = "0.5", features = ["check"] }
+ripemd = "0.1"
+sha2 = "0.10"
+k256 = { version = "0.13", features = ["arithmetic"] }
+secp256k1 = "0.27"
+anyhow = "1"
+thiserror = "1"
+hex = "0.4"
