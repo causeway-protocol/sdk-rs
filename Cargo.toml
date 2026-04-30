@@ -4,6 +4,15 @@ members = [
     "causeway-types",
     "causeway-cpi",
 ]
+# `causeway-derive` is intentionally outside the workspace: it pulls in
+# k256/elliptic-curve which need zeroize >=1.5, while anchor-lang pins
+# zeroize <1.4. Keeping derive standalone avoids the conflict, mirrors
+# the main-repo split (`sdks/causeway-derive-rs`), and lets derive ship
+# with a much smaller dep tree to crates.io. The same will apply to
+# causeway-evm / causeway-zec / causeway-btc — see Day 2's day-block.
+exclude = [
+    "causeway-derive",
+]
 
 [workspace.package]
 version = "0.1.0-alpha.0"

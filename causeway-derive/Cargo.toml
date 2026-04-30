@@ -1,0 +1,27 @@
+[package]
+name = "causeway-derive"
+version = "0.1.0-alpha.0"
+edition = "2021"
+authors = ["Causeway contributors"]
+license = "Apache-2.0"
+repository = "https://github.com/causeway-sh/sdk-rs"
+homepage = "https://causeway.sh"
+rust-version = "1.75"
+description = "Off-chain Causeway address derivation — pure Rust, no Solana dependencies"
+readme = "README.md"
+keywords = ["causeway", "derivation", "tweak", "address"]
+categories = ["cryptography::cryptocurrencies"]
+
+# Standalone crate: same zeroize-conflict reasoning as the main repo.
+# Not a workspace member; dep tree is just k256 + sha2 + bech32 + thiserror.
+
+[dependencies]
+sha2 = "0.10"
+k256 = { version = "0.13", features = ["arithmetic"] }
+bech32 = "0.11"
+thiserror = "1"
+hex = "0.4"
+
+[dev-dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
