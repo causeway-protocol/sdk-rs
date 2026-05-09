@@ -13,6 +13,8 @@ pub enum AssetId {
     Btc = 0,
     Eth = 1,
     ZecT = 2,
+    Sapling = 3,
+    Orchard = 4,
 }
 
 impl AssetId {
@@ -70,6 +72,8 @@ pub enum SighashKind {
     EthLegacy = 2,
     EthEip1559 = 3,
     ZecTransparentZip244 = 4,
+    SaplingSpendAuth = 5,
+    OrchardSpendAuth = 6,
 }
 
 /// Wire format of the final aggregated signature stored on-chain.
@@ -79,4 +83,6 @@ pub enum SignatureFormat {
     Schnorr64 = 0,
     EcdsaDer = 1,
     EcdsaRecoverable65 = 2,
+    RedJubjub64 = 3,
+    RedPallas64 = 4,
 }

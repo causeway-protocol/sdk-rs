@@ -12,7 +12,7 @@ mod anchor_ref {
 
     #[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq, Debug)]
     #[repr(u8)]
-    pub enum AssetId { Btc = 0, Eth = 1, ZecT = 2 }
+    pub enum AssetId { Btc = 0, Eth = 1, ZecT = 2, Sapling = 3, Orchard = 4 }
 
     #[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq, Debug)]
     #[repr(u8)]
@@ -46,6 +46,8 @@ mod anchor_ref {
         EthLegacy = 2,
         EthEip1559 = 3,
         ZecTransparentZip244 = 4,
+        SaplingSpendAuth = 5,
+        OrchardSpendAuth = 6,
     }
 
     #[derive(AnchorSerialize, AnchorDeserialize, Clone, Copy, PartialEq, Eq, Debug)]
@@ -54,6 +56,8 @@ mod anchor_ref {
         Schnorr64 = 0,
         EcdsaDer = 1,
         EcdsaRecoverable65 = 2,
+        RedJubjub64 = 3,
+        RedPallas64 = 4,
     }
 }
 
@@ -72,9 +76,11 @@ fn borsh_bytes<T: borsh::BorshSerialize>(v: &T) -> Vec<u8> {
 #[test]
 fn asset_id_byte_parity() {
     for (a, b) in [
-        (AssetId::Btc,  anchor_ref::AssetId::Btc),
-        (AssetId::Eth,  anchor_ref::AssetId::Eth),
-        (AssetId::ZecT, anchor_ref::AssetId::ZecT),
+        (AssetId::Btc,     anchor_ref::AssetId::Btc),
+        (AssetId::Eth,     anchor_ref::AssetId::Eth),
+        (AssetId::ZecT,    anchor_ref::AssetId::ZecT),
+        (AssetId::Sapling, anchor_ref::AssetId::Sapling),
+        (AssetId::Orchard, anchor_ref::AssetId::Orchard),
     ] {
         assert_eq!(borsh_bytes(&a), anchor_bytes(&b), "{a:?}");
     }
@@ -132,6 +138,8 @@ fn sighash_kind_byte_parity() {
         (SighashKind::EthLegacy,             anchor_ref::SighashKind::EthLegacy),
         (SighashKind::EthEip1559,            anchor_ref::SighashKind::EthEip1559),
         (SighashKind::ZecTransparentZip244,  anchor_ref::SighashKind::ZecTransparentZip244),
+        (SighashKind::SaplingSpendAuth,      anchor_ref::SighashKind::SaplingSpendAuth),
+        (SighashKind::OrchardSpendAuth,      anchor_ref::SighashKind::OrchardSpendAuth),
     ] {
         assert_eq!(borsh_bytes(&a), anchor_bytes(&b), "{a:?}");
     }
@@ -143,6 +151,8 @@ fn signature_format_byte_parity() {
         (SignatureFormat::Schnorr64,           anchor_ref::SignatureFormat::Schnorr64),
         (SignatureFormat::EcdsaDer,            anchor_ref::SignatureFormat::EcdsaDer),
         (SignatureFormat::EcdsaRecoverable65,  anchor_ref::SignatureFormat::EcdsaRecoverable65),
+        (SignatureFormat::RedJubjub64,         anchor_ref::SignatureFormat::RedJubjub64),
+        (SignatureFormat::RedPallas64,         anchor_ref::SignatureFormat::RedPallas64),
     ] {
         assert_eq!(borsh_bytes(&a), anchor_bytes(&b), "{a:?}");
     }
