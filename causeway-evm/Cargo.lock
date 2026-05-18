@@ -859,7 +859,7 @@ dependencies = [
 
 [[package]]
 name = "causeway-derive"
-version = "0.1.0-alpha.0"
+version = "0.1.0-alpha.4"
 dependencies = [
  "bech32",
  "hex",
@@ -870,7 +870,7 @@ dependencies = [
 
 [[package]]
 name = "causeway-evm"
-version = "0.1.0-alpha.0"
+version = "0.1.0-alpha.4"
 dependencies = [
  "alloy",
  "alloy-primitives",

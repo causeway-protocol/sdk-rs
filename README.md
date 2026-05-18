@@ -8,7 +8,7 @@ Rust SDK for [Causeway](https://causeway.sh). Causeway is a Solana
 program plus an off-chain operator quorum: tenant programs ask it to
 sign a sighash, 5 of 7 operators run a threshold round, and the
 result is a valid signature on Bitcoin, an EVM chain (ETH / Base),
-or Zcash transparent.
+Zcash transparent, or Zcash Sapling / Orchard shielded.
 
 Two audiences:
 
@@ -32,6 +32,7 @@ mirrors the off-chain surface. The Anchor CPI surface is Rust-only.
 | [`causeway-zec`](./causeway-zec) | Zcash transparent helpers: t-address, ZIP-244 v5 sighash, scriptSig assembly. | `zcash_primitives`, `causeway-derive` |
 | [`causeway-btc`](./causeway-btc) | Bitcoin helpers: P2TR address, BIP-341 sighash, witness assembly. | `bitcoin`, `causeway-derive` |
 | [`causeway-sapling`](./causeway-sapling) | Zcash Sapling shielded — bech32 payment-address parse/encode + raw 43-byte payload helpers. | `bech32`, `sha2` |
+| [`causeway-orchard`](./causeway-orchard) | Zcash Orchard shielded — bech32m payment-address parse/encode + raw 43-byte payload helpers. | `bech32` |
 
 ## Dependency graph
 
@@ -40,13 +41,16 @@ causeway-types ─── causeway-cpi   (Anchor CPI, on-chain)
 
 causeway-derive ┬── causeway-evm
                 ├── causeway-zec
-                ├── causeway-btc
-                └── causeway-sapling   (off-chain only)
+                └── causeway-btc      (off-chain transparent / EVM)
+
+causeway-types ─┬── causeway-sapling
+                └── causeway-orchard  (off-chain shielded address helpers)
 ```
 
-Asset crates depend only on `causeway-derive`, never on each other.
-An EVM-only consumer that depends on `causeway-evm` doesn't pull in
-any ZEC, BTC, or Sapling code.
+Asset crates never depend on each other. An EVM-only consumer that
+depends on `causeway-evm` doesn't pull in any ZEC, BTC, Sapling, or
+Orchard code. The shielded crates depend only on `causeway-types`
+for shared enums; they don't pull in `causeway-derive`'s ECDSA stack.
 
 ## Install (Cargo)
 
@@ -110,6 +114,7 @@ cargo test --workspace                            # types + cpi
 (cd causeway-zec     && cargo test)
 (cd causeway-btc     && cargo test)
 (cd causeway-sapling && cargo test)
+(cd causeway-orchard && cargo test)
 ```
 
 Cross-implementation parity tests pin the bytes against the on-chain

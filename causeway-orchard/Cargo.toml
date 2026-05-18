@@ -1,5 +1,5 @@
 [package]
-name = "causeway-sapling"
+name = "causeway-orchard"
 version = "0.1.0-alpha.4"
 edition = "2021"
 authors = ["Causeway contributors"]
@@ -7,9 +7,9 @@ license = "Apache-2.0"
 repository = "https://github.com/causeway-protocol/sdk-rs"
 homepage = "https://causeway.sh"
 rust-version = "1.75"
-description = "Causeway off-chain helpers for Zcash Sapling shielded — bech32 payment-address parse/encode + raw 43-byte payload helpers"
+description = "Causeway off-chain helpers for Zcash Orchard shielded — bech32m payment-address parse/encode + raw 43-byte payload helpers"
 readme = "README.md"
-keywords = ["causeway", "zcash", "sapling", "bech32", "shielded"]
+keywords = ["causeway", "zcash", "orchard", "bech32m", "shielded"]
 categories = ["cryptography::cryptocurrencies"]
 
 # Standalone — same workspace-exclusion reasoning as the other per-asset

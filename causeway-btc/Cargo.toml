@@ -1,6 +1,6 @@
 [package]
 name = "causeway-btc"
-version = "0.1.0-alpha.0"
+version = "0.1.0-alpha.4"
 edition = "2021"
 authors = ["Causeway contributors"]
 license = "Apache-2.0"
@@ -15,7 +15,7 @@ categories = ["cryptography::cryptocurrencies"]
 # Standalone — same zeroize-conflict reasoning as causeway-derive.
 
 [dependencies]
-causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.0" }
+causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.4" }
 bitcoin = "0.32"
 sha2 = "0.10"
 k256 = { version = "0.13", features = ["arithmetic"] }

@@ -1,6 +1,6 @@
 [package]
 name = "causeway-evm"
-version = "0.1.0-alpha.0"
+version = "0.1.0-alpha.4"
 edition = "2021"
 authors = ["Causeway contributors"]
 license = "Apache-2.0"
@@ -17,7 +17,7 @@ categories = ["cryptography::cryptocurrencies"]
 # don't pull ZEC or BTC code.
 
 [dependencies]
-causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.0" }
+causeway-derive = { path = "../causeway-derive", version = "0.1.0-alpha.4" }
 alloy = { version = "0.5", features = ["consensus", "eips", "rpc-types-eth", "network", "rlp", "k256"] }
 alloy-primitives = "0.8"
 alloy-rlp = "0.3"
